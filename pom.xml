@@ -14,6 +14,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <vaadin.version>7.7.3</vaadin.version>
         <vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
+        <junit.version>4.12</junit.version>
+        <selenium.version>2.53.1</selenium.version>
+        <jetty-maven-plugin.version>9.4.2.v20170220</jetty-maven-plugin.version>
         <!-- ZIP Manifest fields -->
         <Implementation-Version>${project.version}</Implementation-Version>
         <!-- Must not change this because of the Directory -->
@@ -67,6 +70,23 @@
             <version>${vaadin.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+     			<groupId>junit</groupId>
+     			<artifactId>junit</artifactId>
+     			<version>${junit.version}</version>
+     			<scope>test</scope>
+        </dependency>
+		  <dependency>
+        		<groupId>org.seleniumhq.selenium</groupId>
+        		<artifactId>selenium-java</artifactId>
+        		<version>${selenium.version}</version>
+        		<scope>test</scope>
+      </dependency>
+      <dependency>
+          	<groupId>org.eclipse.jetty</groupId>
+          	<artifactId>jetty-maven-plugin</artifactId>
+          	<version>${jetty-maven-plugin.version}</version>
+      </dependency>
     </dependencies>
 
     <repositories>
@@ -150,8 +170,15 @@
                     <releaseProfiles>directorypackage</releaseProfiles>
                 </configuration>
             </plugin>
+        		<plugin>
+          		<groupId>org.eclipse.jetty</groupId>
+          		<artifactId>jetty-maven-plugin</artifactId>
+          		<version>${jetty-maven-plugin.version}</version>
+        		</plugin>
 
         </plugins>
+        <pluginManagement>
+        </pluginManagement>
 
     </build>
 
